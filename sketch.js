@@ -16,12 +16,14 @@ function setup() {
 
 function draw() {
   background(220);
+  noStroke()
+  span = 5+map(mouseX,0,width,0,20)
   push()
-  translate(width/2-160, height/2-120) //把原點移到(width/2-160, height/2-120)
+  translate(width/2-capture_width/2, height/2-capture_height/2) //把原點移到(width/2-160, height/2-120)
   captureGraphics.image(capture,0,0) //
   for(var x= 0;x<captureGraphics.width;x=x+10){
     for(var y=0;y<captureGraphics.height;y=y+10){
-      var pixel = captureGraphics.gey(x,y)
+      var pixel = captureGraphics.get(x,y)
       fill(pixel)
       rect(x,y,10)
     }
